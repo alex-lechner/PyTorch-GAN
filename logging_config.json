@@ -1,0 +1,38 @@
+{
+    "version": 1,
+    "formatters": {
+        "brief": {
+            "class": "logging.Formatter",
+            "format": "%(name)-12s: %(levelname)-8s %(message)s",
+            "datefmt": "%d.%m.%Y %H:%M:%S"
+        },
+        "default": {
+            "class": "logging.Formatter",
+            "format": "%(asctime)s %(name)-12s %(levelname)-8s {%(pathname)s:%(funcName)s:%(lineno)d} %(message)s",
+            "datefmt": "%d.%m.%Y %H:%M:%S"
+        }
+    },
+    "handlers": {
+        "console": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "formatter": "brief",
+            "stream": "ext://sys.stdout"
+        },
+        "file": {
+            "level": "INFO",
+            "class": "logging.FileHandler",
+            "formatter": "default",
+            "filename": "./log/error.log",
+            "mode": "a",
+            "encoding": "utf-8"
+        }
+    },
+    "root": {
+        "level": "DEBUG",
+        "handlers": [
+            "console",
+            "file"
+        ]
+    }
+}
